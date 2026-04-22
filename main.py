@@ -86,8 +86,8 @@ else:
     print("🤝 It's a dead tie. Both models performed equally well.")
     
 # Optional: detailed breakdown if you want to see class-by-class
-print("\n(Optional) Detailed XGBoost Classification Report:")
+print("\nDetailed XGBoost Classification Report:")
 print(classification_report(y_true, raw_preds_xgb, target_names=le.classes_, zero_division=0))
 print("======================================================")
-print("\n(Optional) Detailed Random Forest Classification Report:")
-print(classification_report(y_true, raw_preds_xgb, target_names=le.classes_, zero_division=0))
+print("\nDetailed Random Forest Classification Report:")
+print(classification_report(y_true, raw_preds_rf, target_names=le.classes_, zero_division=0))

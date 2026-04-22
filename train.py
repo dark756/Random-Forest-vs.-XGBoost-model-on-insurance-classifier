@@ -54,8 +54,18 @@ trained_columns = X.columns.tolist() # Save this specific column layout
 # 5. Train/Test Split & SMOTE
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.20, random_state=42, stratify=y)
 
+
+print("\n[INFO] Class Distribution BEFORE SMOTE (Training Set):")
+# Mapping 0 back to 'No' and 1 to 'Yes' for readability
+print(pd.Series(y_train).map({0: 'No', 1: 'Yes'}).value_counts())
+print("-" * 50)
+
 smote = SMOTE(random_state=42)
 X_train_resampled, y_train_resampled = smote.fit_resample(X_train, y_train)
+
+print("\n[INFO] Class Distribution AFTER SMOTE (Training Set):")
+print(pd.Series(y_train_resampled).map({0: 'No', 1: 'Yes'}).value_counts())
+print("-" * 50 + "\n")
 
 print("--- PHASE 2: Model Training ---")
 
